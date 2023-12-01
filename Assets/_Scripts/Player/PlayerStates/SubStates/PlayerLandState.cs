@@ -16,6 +16,8 @@ namespace _Scripts.Player.PlayerStates.SubStates
             {
                 if(XInput!=0)
                     StateMachine.ChangeState(Player.MoveState);
+                else if (YInput == -1)
+                    StateMachine.ChangeState(Player.CrouchIdleState);
                 else if (IsAnimationFinished) 
                     StateMachine.ChangeState(Player.IdleState);
             }
