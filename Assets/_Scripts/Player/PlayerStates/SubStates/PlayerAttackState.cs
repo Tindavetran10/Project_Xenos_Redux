@@ -18,6 +18,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
             : base(player, stateMachine, playerData, animBoolName)
         {
             _weapon = weapon;
+            weapon.OnExit += ExitHandler;
         }
 
         public override void Enter()
@@ -25,6 +26,12 @@ namespace _Scripts.Player.PlayerStates.SubStates
             base.Enter();
             
             _weapon.Enter();
+        }
+
+        private void ExitHandler()
+        {
+            AnimationFinishTrigger();
+            IsAbilityDone = true;
         }
     }
 }
