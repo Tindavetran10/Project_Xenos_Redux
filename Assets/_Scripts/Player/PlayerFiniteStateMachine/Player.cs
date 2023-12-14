@@ -9,7 +9,6 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
 {
     public class Player : MonoBehaviour
     {
-        //code chinh cua player
         public bool IsBusy { get; private set; }
         
         #region State Variables
