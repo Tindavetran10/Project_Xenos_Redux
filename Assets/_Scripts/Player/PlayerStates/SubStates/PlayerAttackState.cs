@@ -7,7 +7,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
 {
     public class PlayerAttackState : PlayerAbilityState
     {
-        private Weapon _weapon;
+        private readonly Weapon _weapon;
 
         public PlayerAttackState(
             PlayerFiniteStateMachine.Player player,
