@@ -1,5 +1,5 @@
 using System;
-using _Scripts.Core.CoreComponents;
+using _Scripts.CoreSystem.CoreComponents;
 using UnityEngine;
 
 public class Stats : CoreComponent

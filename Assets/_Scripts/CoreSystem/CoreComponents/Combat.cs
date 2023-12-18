@@ -1,7 +1,7 @@
 using _Scripts.Interfaces;
 using UnityEngine;
 
-namespace _Scripts.Core.CoreComponents
+namespace _Scripts.CoreSystem.CoreComponents
 { 
     public class Combat : CoreComponent, IDamageable, IKnockBackable
     {

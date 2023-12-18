@@ -1,7 +1,7 @@
 ﻿using Interface;
 using UnityEngine;
 
-namespace _Scripts.Core.CoreComponents
+namespace _Scripts.CoreSystem.CoreComponents
 {
     public class CoreComponent : MonoBehaviour, ILogicUpdate
     {

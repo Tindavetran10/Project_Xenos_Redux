@@ -11,8 +11,8 @@ namespace _Scripts.Player.Input
         private Camera _cam;
 
         // Events for handling pause and resume actions
-        public event Action PauseEvent;
-        public event Action ResumeEvent;
+        public event Action OnPauseEvent;
+        public event Action OnResumeEvent;
 
         // Properties to store raw and normalized input values
         private Vector2 RawMovementInput { get; set; }
@@ -37,7 +37,7 @@ namespace _Scripts.Player.Input
         
         private void Start()
         {
-            int count = Enum.GetValues(typeof(CombatInputs)).Length;
+            var count = Enum.GetValues(typeof(CombatInputs)).Length;
             AttackInputs = new bool[count];
             
             _cam = Camera.main;
@@ -163,7 +163,7 @@ namespace _Scripts.Player.Input
         public void OnPause(InputAction.CallbackContext context)
         {
             if (context.phase != InputActionPhase.Performed) return;
-            PauseEvent?.Invoke();
+            OnPauseEvent?.Invoke();
             SetUI();
         }
 
@@ -171,7 +171,7 @@ namespace _Scripts.Player.Input
         public void OnResume(InputAction.CallbackContext context)
         {
             if (context.phase != InputActionPhase.Performed) return;
-            ResumeEvent?.Invoke();
+            OnResumeEvent?.Invoke();
             SetGameplay();
         }
 

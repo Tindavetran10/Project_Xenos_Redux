@@ -1,4 +1,4 @@
-﻿using _Scripts.Core.CoreComponents;
+﻿using _Scripts.CoreSystem.CoreComponents;
 using _Scripts.Player.Data;
 using _Scripts.Player.PlayerFiniteStateMachine;
 using UnityEngine;

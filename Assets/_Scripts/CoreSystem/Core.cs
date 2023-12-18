@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using _Scripts.Core.CoreComponents;
+using _Scripts.CoreSystem.CoreComponents;
 using UnityEngine;
 
-namespace _Scripts.Core
+namespace _Scripts.CoreSystem
 {
     public class Core : MonoBehaviour
     {
