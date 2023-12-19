@@ -1,6 +1,5 @@
-﻿using _Scripts.Core.CoreComponents;
+﻿using _Scripts.CoreSystem.CoreComponents;
 using _Scripts.Player.Data;
-using _Scripts.Player.Input;
 using _Scripts.Player.PlayerFiniteStateMachine;
 
 namespace _Scripts.Player.PlayerStates.SuperStates
@@ -26,6 +25,9 @@ namespace _Scripts.Player.PlayerStates.SuperStates
         private bool _isTouchingWall;
         private bool _isTouchingLedge;
         private bool _dashInput;
+
+        private bool _normalAttackInput;
+        private bool _heavyAttackInput;
         
         protected PlayerGroundedState(PlayerFiniteStateMachine.Player player, PlayerStateMachine stateMachine, 
             PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName){}
@@ -66,9 +68,12 @@ namespace _Scripts.Player.PlayerStates.SuperStates
             _grabInput = Player.InputHandler.GrabInput;
             _dashInput = Player.InputHandler.DashInput;
 
-            if (Player.InputHandler.AttackInputs[(int)CombatInputs.Normal] && !IsTouchingCeiling)
+            _normalAttackInput = Player.InputHandler.AttackInputs[(int)CombatInputs.Normal];
+            _heavyAttackInput = Player.InputHandler.AttackInputs[(int)CombatInputs.Heavy]; 
+
+            if (_normalAttackInput && !IsTouchingCeiling)
                 StateMachine.ChangeState(Player.NormalAttackState);
-            else if (Player.InputHandler.AttackInputs[(int)CombatInputs.Heavy] && !IsTouchingCeiling)
+            else if (_heavyAttackInput && !IsTouchingCeiling)
                 StateMachine.ChangeState(Player.HeavyAttackState);
             // Change to Jump State if there is a jumpInput, the number of jumps is > 0 and he isn't touch the ceiling 
             else if(_jumpInput && Player.JumpState.CanJump() && !IsTouchingCeiling)

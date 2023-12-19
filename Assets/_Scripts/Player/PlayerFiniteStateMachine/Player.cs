@@ -38,7 +38,7 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
         #endregion
 
         #region Components
-        public global::_Scripts.Core.Core Core { get; private set; }
+        public CoreSystem.Core Core { get; private set; }
         public Animator Anim { get; private set; }
         public PlayerInputHandler InputHandler { get; private set; }
         public Rigidbody2D Rb { get; private set; }
@@ -54,9 +54,10 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
         #region Unity Callback Functions
         private void Awake()
         {
-            Core = GetComponentInChildren<global::_Scripts.Core.Core>();
+            Core = GetComponentInChildren<CoreSystem.Core>();
 
             _weapon = transform.Find("CurrentWeapon").GetComponent<Weapon>();
+            _weapon.SetCore(Core);
             
             StateMachine = new PlayerStateMachine();
         
@@ -89,6 +90,8 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
 
             StateMachine.Initialize(IdleState);
         }
+        
+        
 
         private void Update()
         {

@@ -24,7 +24,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
         public override void Enter()
         {
             base.Enter();
-            
+            // Call the enter function from Weapon class
             _weapon.Enter();
         }
 

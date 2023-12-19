@@ -5,7 +5,7 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
 {
      public class PlayerState
      {
-          protected readonly global::_Scripts.Core.Core Core;
+          protected readonly CoreSystem.Core Core;
 
           protected readonly Player Player;
           protected readonly PlayerStateMachine StateMachine;
