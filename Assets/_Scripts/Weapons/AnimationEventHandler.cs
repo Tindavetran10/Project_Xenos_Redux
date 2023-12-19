@@ -8,6 +8,7 @@ namespace _Scripts.Weapons
     {
         private PlayerInputHandler _playerInputHandler;
         private Weapon _weapon;
+        private int _currentAttackIndex;
         
         public event Action OnFinish;
         public event Action OnStartMovement;
@@ -18,15 +19,17 @@ namespace _Scripts.Weapons
         {
             _playerInputHandler = GetComponentInParent<PlayerInputHandler>();
             _weapon = GetComponentInParent<Weapon>();
+            _currentAttackIndex = _weapon.CurrentAttackCounter;
         }
 
         private void AnimationCancelTrigger()
         {
-            if(_playerInputHandler.AttackInputs[_weapon.CurrentAttackCounter])
+            if (_playerInputHandler.AttackInputs[_currentAttackIndex])
+            {
+                Debug.Log(_currentAttackIndex);
                 OnCancel?.Invoke();
+            }
         }
-
-        
         private void AnimationFinishedTrigger() => OnFinish?.Invoke();
         private void StartMovementTrigger() => OnStartMovement?.Invoke();
         private void StopMovementTrigger() => OnStopMovement?.Invoke();

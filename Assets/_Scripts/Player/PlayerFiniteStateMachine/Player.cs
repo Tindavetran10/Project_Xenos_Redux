@@ -57,7 +57,6 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
             Core = GetComponentInChildren<CoreSystem.Core>();
 
             _weapon = transform.Find("CurrentWeapon").GetComponent<Weapon>();
-            
             _weapon.SetCore(Core);
             
             StateMachine = new PlayerStateMachine();

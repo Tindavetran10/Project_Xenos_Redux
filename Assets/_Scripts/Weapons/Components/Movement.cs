@@ -19,9 +19,11 @@ namespace _Scripts.Weapons.Components
 
         private void HandleStopMovement() => CoreMovement.SetVelocityZero();
 
+
         protected override void Awake()
         {
             base.Awake();
+
             _data = Weapon.Data.GetData<MovementData>();
         }
 

@@ -12,38 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1999e606c01b4a44937bdc9db50ad060, type: 3}
   m_Name: Katana
   m_EditorClassIdentifier: 
-  <NumberOfAttacks>k__BackingField: 1
-  <ComponentData>k__BackingField:
-  - rid: 1549011052323143680
-  - rid: 1549011052323143681
-  references:
-    version: 2
-    RefIds:
-    - rid: 1549011052323143680
-      type: {class: WeaponSpriteData, ns: _Scripts.Weapons.Components.ComponentData, asm: Assembly-CSharp}
-      data:
-        <AttackData>k__BackingField:
-        - <Sprites>k__BackingField:
-          - {fileID: 548359096, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -2019489350, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: 771281738, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: 401587624, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -1583562060, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -1480118814, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: 1238328987, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -1374636533, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -115112758, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -1438775642, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: 2021372372, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -58445473, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: 1958029583, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: 336984887, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -1456746808, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -627771506, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-          - {fileID: -1152284903, guid: a172549aaec8c844fb33bf71621032d1, type: 3}
-    - rid: 1549011052323143681
-      type: {class: MovementData, ns: _Scripts.Weapons.Components.ComponentData, asm: Assembly-CSharp}
-      data:
-        <AttackData>k__BackingField:
-        - <Direction>k__BackingField: {x: 1, y: 0}
-          <Velocity>k__BackingField: 3
+  <NumberOfAttacks>k__BackingField: 3

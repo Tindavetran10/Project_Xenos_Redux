@@ -11,8 +11,8 @@ namespace _Scripts.Weapons
     // This script's basically a communicating hub between the player's attack state and the weapons
     public class Weapon : MonoBehaviour
     {
-        // Get data from the scriptable object
-        [field: SerializeField] public WeaponDataSO Data { get; private set; }
+        // Get NumberOfAttacks and MovementSpeed from the scriptable object
+        [field: SerializeField] public WeaponDataSo Data { get; private set; }
         
         // The amount of time that the combo will restart to the first animation
         [SerializeField] private float attackCounterResetCoolDown;
@@ -24,24 +24,24 @@ namespace _Scripts.Weapons
             // Reset the counter if it has reached the maximum number of attacks
             private set => _currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value;
         }
+        private int _currentAttackCounter;
+        private static readonly int Counter = Animator.StringToHash("counter");
 
         public event Action OnEnter; 
         public event Action OnExit;
         
         private Animator _anim;
-        private AnimationEventHandler EventHandler { get; set; }
+        public AnimationEventHandler EventHandler { get; private set; }
         
         // Reference to the base under the CurrentWeapon prefabs
         private GameObject BaseGameObject { get; set; }         
         //public GameObject WeaponSpriteGameObject { get; private set; }
         private static readonly int Active = Animator.StringToHash("active");
         
+        // Reference the Core that handle the normal movement of player
         public Core Core { get; private set; }
 
-        private int _currentAttackCounter;
-        private static readonly int Counter = Animator.StringToHash("counter");
-
-        private Timer _attackCounterResetTimer;
+         private Timer _attackCounterResetTimer;
 
         public void Awake()
         {
@@ -81,6 +81,7 @@ namespace _Scripts.Weapons
             _attackCounterResetTimer.StartTimer();
             
             CurrentAttackCounter++;
+            
             OnExit?.Invoke();
         }
 

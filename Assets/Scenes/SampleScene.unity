@@ -2091,7 +2091,8 @@ PrefabInstance:
       propertyPath: attackCounterResetCoolDown
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9040428931451832601, guid: fb07ef7fb68b06d4db3fbdd90a808b50, type: 3}
     m_RemovedGameObjects:
     - {fileID: 7655452283176513424, guid: fb07ef7fb68b06d4db3fbdd90a808b50, type: 3}
     m_AddedGameObjects: []
