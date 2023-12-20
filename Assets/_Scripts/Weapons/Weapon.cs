@@ -24,6 +24,7 @@ namespace _Scripts.Weapons
             // Reset the counter if it has reached the maximum number of attacks
             private set => _currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value;
         }
+        
         private int _currentAttackCounter;
         private static readonly int Counter = Animator.StringToHash("counter");
 
@@ -31,7 +32,7 @@ namespace _Scripts.Weapons
         public event Action OnExit;
         
         private Animator _anim;
-        public AnimationEventHandler EventHandler { get; private set; }
+        private AnimationEventHandler EventHandler { get; set; }
         
         // Reference to the base under the CurrentWeapon prefabs
         private GameObject BaseGameObject { get; set; }         
@@ -46,7 +47,6 @@ namespace _Scripts.Weapons
         public void Awake()
         {
             BaseGameObject = transform.Find("Base").GameObject();
-            //WeaponSpriteGameObject = transform.Find("WeaponSprite").GameObject();
             
             // Make references to the AnimationEventHandler script from the BaseGameObject
             EventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();

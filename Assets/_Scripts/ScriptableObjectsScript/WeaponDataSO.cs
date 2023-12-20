@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using _Scripts.Weapons.Components.ComponentData;
+using _Scripts.Weapons.Components;
 using UnityEngine;
 
 namespace _Scripts.ScriptableObjectsScript
@@ -12,9 +12,13 @@ namespace _Scripts.ScriptableObjectsScript
         [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
 
         public T GetData<T>() => ComponentData.OfType<T>().FirstOrDefault();
-        
-        [ContextMenu("Add Movement Data")]
-        private void AddMovementData() => ComponentData.Add(new MovementData());
 
+        public void AddData(ComponentData data)
+        {
+            if(ComponentData.FirstOrDefault(t => t.GetType() == data.GetType()) != null)
+                return;
+            
+            ComponentData.Add(data);
+        }
     }
 }

@@ -38,4 +38,22 @@ namespace _Scripts.Weapons.Components
             Weapon.OnExit -= HandleExit;
         }
     }
+
+    public abstract class WeaponComponent<T1, T2> : WeaponComponent where T1 : ComponentData<T2> where T2 : AttackData
+    {
+        private T1 _data;
+        protected T2 CurrentAttackData;
+
+        protected override void HandleEnter()
+        {
+            base.HandleEnter();
+            CurrentAttackData = _data.AttackData[Weapon.CurrentAttackCounter];
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _data = Weapon.Data.GetData<T1>();
+        }
+    }
 }
