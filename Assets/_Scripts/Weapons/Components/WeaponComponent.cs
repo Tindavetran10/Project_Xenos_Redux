@@ -22,7 +22,9 @@ namespace _Scripts.Weapons.Components
             Weapon = GetComponent<Weapon>();
             EventHandler = GetComponentInChildren<AnimationEventHandler>();
         }
-        
+
+        protected virtual void Start() {}
+
         protected virtual void HandleEnter() => IsAttackActive = true;
         protected virtual void HandleExit() => IsAttackActive = false;
 
@@ -41,19 +43,19 @@ namespace _Scripts.Weapons.Components
 
     public abstract class WeaponComponent<T1, T2> : WeaponComponent where T1 : ComponentData<T2> where T2 : AttackData
     {
-        private T1 _data;
+        protected T1 Data;
         protected T2 CurrentAttackData;
 
         protected override void HandleEnter()
         {
             base.HandleEnter();
-            CurrentAttackData = _data.AttackData[Weapon.CurrentAttackCounter];
+            CurrentAttackData = Data.AttackData[Weapon.CurrentAttackCounter];
         }
 
         protected override void Awake()
         {
             base.Awake();
-            _data = Weapon.Data.GetData<T1>();
+            Data = Weapon.Data.GetData<T1>();
         }
     }
 }

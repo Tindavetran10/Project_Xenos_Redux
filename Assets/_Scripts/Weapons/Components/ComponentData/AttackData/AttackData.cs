@@ -1,5 +1,4 @@
 namespace _Scripts.Weapons.Components
 {
-    public class AttackData
-    {}
+    public class AttackData {}
 }
