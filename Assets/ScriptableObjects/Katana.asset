@@ -22,7 +22,7 @@ MonoBehaviour:
     - rid: 1549011118991605760
       type: {class: MovementData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
+        attackData:
         - <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 2
         - <Direction>k__BackingField: {x: 1, y: 0}
@@ -32,25 +32,28 @@ MonoBehaviour:
     - rid: 1549011141649760257
       type: {class: ActionHitBoxData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
-        - <Hitbox>k__BackingField:
+        attackData:
+        - Debug: 0
+          <HitBox>k__BackingField:
             serializedVersion: 2
-            x: 0
-            y: 0
-            width: 0
-            height: 0
-        - <Hitbox>k__BackingField:
+            x: 0.02
+            y: -0.34
+            width: 1
+            height: 0.72
+        - Debug: 0
+          <HitBox>k__BackingField:
             serializedVersion: 2
-            x: 0
-            y: 0
-            width: 0
-            height: 0
-        - <Hitbox>k__BackingField:
+            x: 0.06
+            y: -0.34
+            width: 0.66
+            height: 0.66
+        - Debug: 1
+          <HitBox>k__BackingField:
             serializedVersion: 2
-            x: 0
-            y: 0
-            width: 0
-            height: 0
-        <DetectableLayer>k__BackingField:
+            x: 0.02
+            y: -0.34
+            width: 1
+            height: 0.72
+        <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 0

@@ -25,7 +25,10 @@ namespace _Scripts.Weapons
 
         private void AnimationCancelTrigger()
         {
-            if (_playerInputHandler.AttackInputs[_currentAttackIndex])
+            if (_playerInputHandler.AttackInputs[_currentAttackIndex] || 
+                _playerInputHandler.NormInputX == 1 || _playerInputHandler.NormInputX == -1 ||
+                _playerInputHandler.JumpInput ||
+                _playerInputHandler.DashInput)
             {
                 Debug.Log(_currentAttackIndex);
                 OnCancel?.Invoke();

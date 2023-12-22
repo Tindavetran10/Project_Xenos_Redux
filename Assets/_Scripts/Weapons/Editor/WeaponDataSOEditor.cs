@@ -10,10 +10,13 @@ using UnityEngine;
 namespace _Scripts.Weapons
 {
     [CustomEditor(typeof(WeaponDataSo))]
-    public class WeaponDataSOEditor : Editor
+    public class WeaponDataSoEditor : Editor
     {
-        private static List<Type> dataCompTypes = new List<Type>();
+        private static List<Type> _dataCompTypes = new();
         private WeaponDataSo _dataSo;
+
+        private bool showForceUpdateButtons;
+        private bool showAddComponentButtons;
 
         private void OnEnable()
         {
@@ -24,14 +27,49 @@ namespace _Scripts.Weapons
         {
             base.OnInspectorGUI();
 
-            foreach (var dataCompType in dataCompTypes)
+            if (GUILayout.Button("Set Number of Attacks"))
             {
-                if (GUILayout.Button(dataCompType.Name))
+                foreach (var item in _dataSo.ComponentData)
                 {
-                    var comp = Activator.CreateInstance(dataCompType) as ComponentData;
+                    item.InitializeAttackData(_dataSo.NumberOfAttacks);
+                }
+            }
+
+
+            showAddComponentButtons = EditorGUILayout.Foldout(showAddComponentButtons, "Add Components");
+
+            if (showAddComponentButtons)
+            {
+                foreach (var comp in from dataCompType in _dataCompTypes 
+                         where GUILayout.Button(dataCompType.Name) 
+                         select Activator.CreateInstance(dataCompType) as ComponentData)
+                {
                     if (comp == null) return;
+                
+                    comp.InitializeAttackData(_dataSo.NumberOfAttacks);
                     
                     _dataSo.AddData(comp);
+                }
+            }
+            
+            showForceUpdateButtons = EditorGUILayout.Foldout(showForceUpdateButtons, "Force Update Components");
+
+            if (showForceUpdateButtons)
+            {
+                if (GUILayout.Button("Force Update Component Names"))
+                {
+                    foreach (var item in _dataSo.ComponentData)
+                    {
+                        item.SetComponentName();
+                    }
+                }
+            
+                if (GUILayout.Button("Force Update Attack Names"))
+                {
+                    foreach (var item in _dataSo.ComponentData)
+                    {
+                        item.SetAttackDataNames();
+                    }
                 }
             }
         }
@@ -45,7 +83,7 @@ namespace _Scripts.Weapons
                 type => type.IsSubclassOf(typeof(ComponentData)) && !type.ContainsGenericParameters && type.IsClass
             );
 
-            dataCompTypes = filteredTypes.ToList();
+            _dataCompTypes = filteredTypes.ToList();
         }
     }
 }

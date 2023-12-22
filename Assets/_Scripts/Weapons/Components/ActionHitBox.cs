@@ -28,7 +28,8 @@ namespace _Scripts.Weapons.Components
             if(_detected.Length == 0) return;
             OnDetectedCollider2D?.Invoke(_detected);
 
-            foreach (var item in _detected) Debug.Log(item.name);
+            foreach (var item in _detected) 
+                Debug.Log(item.name);
         }
 
         protected override void Start()
