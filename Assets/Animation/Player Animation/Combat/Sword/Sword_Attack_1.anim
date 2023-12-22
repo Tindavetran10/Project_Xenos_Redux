@@ -22,36 +22,34 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1497296542, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.07692308
-      value: {fileID: 2085264460, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.15384616
+    - time: 0.083333336
       value: {fileID: -931758662, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.23076923
+    - time: 0.16666667
       value: {fileID: 1992216264, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.30769232
+    - time: 0.25
       value: {fileID: 1597269344, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.3846154
+    - time: 0.33333334
       value: {fileID: 1203249757, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.46153846
+    - time: 0.41666666
       value: {fileID: -1984708837, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.53846157
+    - time: 0.5
       value: {fileID: -779005142, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.61538464
+    - time: 0.5833333
       value: {fileID: -2018737586, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.6923077
+    - time: 0.6666667
       value: {fileID: 1806735063, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.7692308
+    - time: 0.75
       value: {fileID: -1052730172, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.84615386
+    - time: 0.8333333
       value: {fileID: -850475369, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - time: 0.9230769
+    - time: 0.9166667
       value: {fileID: -1034386369, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 13
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -69,7 +67,6 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 1497296542, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
-    - {fileID: 2085264460, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
     - {fileID: -931758662, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
     - {fileID: 1992216264, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
     - {fileID: 1597269344, guid: 42203c2a8725ca04385dceb7e7bc3c03, type: 3}
@@ -113,28 +110,63 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.23076923
+  - time: 0.16666667
     functionName: StartMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.46153846
+  - time: 0.16666667
+    functionName: AttackActionTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
     functionName: StopMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.61538464
+  - time: 0.5
     functionName: AnimationCancelTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6923077
+  - time: 0.5833333
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.8333333
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.9166667
     functionName: AnimationCancelTrigger
     data: 
     objectReferenceParameter: {fileID: 0}

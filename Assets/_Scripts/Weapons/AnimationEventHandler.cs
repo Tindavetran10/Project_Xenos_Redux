@@ -13,6 +13,7 @@ namespace _Scripts.Weapons
         public event Action OnFinish;
         public event Action OnStartMovement;
         public event Action OnStopMovement;
+        public event Action OnAttackAction;
         public event Action OnCancel;
 
         private void Start()
@@ -24,7 +25,10 @@ namespace _Scripts.Weapons
 
         private void AnimationCancelTrigger()
         {
-            if (_playerInputHandler.AttackInputs[_currentAttackIndex])
+            if (_playerInputHandler.AttackInputs[_currentAttackIndex] || 
+                _playerInputHandler.NormInputX == 1 || _playerInputHandler.NormInputX == -1 ||
+                _playerInputHandler.JumpInput ||
+                _playerInputHandler.DashInput)
             {
                 Debug.Log(_currentAttackIndex);
                 OnCancel?.Invoke();
@@ -33,5 +37,6 @@ namespace _Scripts.Weapons
         private void AnimationFinishedTrigger() => OnFinish?.Invoke();
         private void StartMovementTrigger() => OnStartMovement?.Invoke();
         private void StopMovementTrigger() => OnStopMovement?.Invoke();
+        private void AttackActionTrigger() => OnAttackAction?.Invoke();
     }
 }

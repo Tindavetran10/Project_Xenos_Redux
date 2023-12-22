@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-namespace _Scripts.Weapons.Components.ComponentData.AttackData
+namespace _Scripts.Weapons.Components
 {
     [Serializable]
-    public class AttackMovement
+    public class AttackMovement : AttackData
     {
         [field: SerializeField] public Vector2 Direction { get; private set; }
         [field: SerializeField] public float Velocity { get; private set; }

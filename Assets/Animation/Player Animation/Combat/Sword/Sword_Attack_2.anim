@@ -108,6 +108,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.1
+    functionName: AttackActionTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.15
     functionName: StopMovementTrigger
     data: 
@@ -129,7 +136,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.3
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.35
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.4
     functionName: AnimationCancelTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
