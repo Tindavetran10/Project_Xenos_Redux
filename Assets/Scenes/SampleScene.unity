@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 356776836}
   - component: {fileID: 356776838}
   - component: {fileID: 356776837}
+  - component: {fileID: 356776839}
   m_Layer: 7
   m_Name: Combat
   m_TagString: Untagged
@@ -856,6 +857,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0023841858, y: -0.0030955076}
   m_Size: {x: 0.16228914, y: 0.666191}
   m_Direction: 0
+--- !u!114 &356776839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356776835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e2c23624e244c884ce7a20fbcb7f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
