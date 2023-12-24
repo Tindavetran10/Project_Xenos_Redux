@@ -33,17 +33,13 @@ namespace _Scripts.Weapons.Components
         {
             base.Start();
             _movement = new CoreComp<CoreSystem.CoreComponents.Movement>(Core);
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
             EventHandler.OnAttackAction += HandleAttackAction;
         }
+        
 
-        protected override void OnDisable()
+        protected override void OnDestroy()
         {
-            base.OnDisable();
+            base.OnDestroy();
             EventHandler.OnAttackAction -= HandleAttackAction;
         }
 

@@ -11,12 +11,12 @@ namespace _Scripts.Weapons
     // This script's basically a communicating hub between the player's attack state and the weapons
     public class Weapon : MonoBehaviour
     {
-        // Get NumberOfAttacks and MovementSpeed from the scriptable object
-        [field: SerializeField] public WeaponDataSo Data { get; private set; }
-        
         // The amount of time that the combo will restart to the first animation
         [SerializeField] private float attackCounterResetCoolDown;
-
+        
+        // Get NumberOfAttacks and MovementSpeed from the scriptable object
+        public WeaponDataSo Data { get; private set; }
+        
         // Change the attack animation base on the number of player's input
         public int CurrentAttackCounter
         {
@@ -100,5 +100,6 @@ namespace _Scripts.Weapons
         }
         
         public void SetCore(Core core) => Core = core;
+        public void SetData(WeaponDataSo data) => Data = data;
     }
 }

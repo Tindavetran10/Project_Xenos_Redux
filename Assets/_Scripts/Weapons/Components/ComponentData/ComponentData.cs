@@ -5,13 +5,20 @@ namespace _Scripts.Weapons.Components
 {
     // Base class that all type of data gonna inherited
     [Serializable]
-    public class ComponentData
+    public abstract class ComponentData
     {
         [SerializeField, HideInInspector] private string name;
 
-        public ComponentData() => SetComponentName();
+        public Type ComponentDependency { get; set; }
+        
+        public ComponentData()
+        {
+            SetComponentName();
+            SetComponentDependency();
+        }
 
         public void SetComponentName() => name = GetType().Name;
+        protected abstract void SetComponentDependency();
         
         public virtual void SetAttackDataNames(){}
 
@@ -19,7 +26,7 @@ namespace _Scripts.Weapons.Components
     }
 
     [Serializable]
-    public class ComponentData<T> : ComponentData where T : AttackData
+    public abstract class ComponentData<T> : ComponentData where T : AttackData
     {
         [SerializeField] private T[] attackData;
         public T[] AttackData { get => attackData; private set => attackData = value;}

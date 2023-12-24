@@ -1,4 +1,10 @@
 namespace _Scripts.Weapons.Components
 {
-    public class DamageData : ComponentData<AttackDamage>{}
+    public class DamageData : ComponentData<AttackDamage>
+    {
+        protected override void SetComponentDependency()
+        {
+            ComponentDependency = typeof(Damage);
+        }
+    }
 }

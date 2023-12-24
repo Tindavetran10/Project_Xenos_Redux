@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Weapons.Components;
@@ -12,6 +13,8 @@ namespace _Scripts.ScriptableObjectsScript
         [field: SerializeReference] public List<ComponentData> ComponentData { get; private set; }
 
         public T GetData<T>() => ComponentData.OfType<T>().FirstOrDefault();
+
+        public List<Type> GetAllDependencies() => ComponentData.Select(component => component.ComponentDependency).ToList();
 
         public void AddData(ComponentData data)
         {
