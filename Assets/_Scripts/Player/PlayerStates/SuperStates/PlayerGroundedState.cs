@@ -72,7 +72,7 @@ namespace _Scripts.Player.PlayerStates.SuperStates
             _heavyAttackInput = Player.InputHandler.AttackInputs[(int)CombatInputs.Heavy]; 
 
             if (_normalAttackInput && !IsTouchingCeiling)
-                StateMachine.ChangeState(Player.NormalAttackState);
+                StateMachine.ChangeState(Player.NormalNormalAttackState);
             else if (_heavyAttackInput && !IsTouchingCeiling)
                 StateMachine.ChangeState(Player.HeavyAttackState);
             // Change to Jump State if there is a jumpInput, the number of jumps is > 0 and he isn't touch the ceiling 

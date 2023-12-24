@@ -67,7 +67,7 @@ MonoBehaviour:
             height: 0.72
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 512
     - rid: 1549011200523108352
       type: {class: DamageData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -86,13 +86,13 @@ MonoBehaviour:
         attackData:
         - name: Attack 1
           <Angle>k__BackingField: {x: 1, y: 1}
-          <Strength>k__BackingField: 10
+          <Strength>k__BackingField: 1
         - name: Attack 2
           <Angle>k__BackingField: {x: 1, y: 1}
-          <Strength>k__BackingField: 10
+          <Strength>k__BackingField: 1
         - name: Attack 3
           <Angle>k__BackingField: {x: 1, y: 3}
-          <Strength>k__BackingField: 20
+          <Strength>k__BackingField: 8
     - rid: 1549011224645074945
       type: {class: PoiseDamageData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:

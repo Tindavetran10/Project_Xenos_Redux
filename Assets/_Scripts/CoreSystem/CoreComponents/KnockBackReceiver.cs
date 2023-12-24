@@ -32,7 +32,7 @@ namespace _Scripts.CoreSystem.CoreComponents
                )
             {
                 _isKnockBackActive = false;
-                if (_movement.Comp != null) _movement.Comp.CanSetVelocity = true;
+                _movement.Comp.CanSetVelocity = true;
             }
         }
 
