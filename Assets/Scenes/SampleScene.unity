@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141545348}
+  - component: {fileID: 141545349}
   m_Layer: 7
   m_Name: Stats
   m_TagString: Untagged
@@ -154,6 +155,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1277819410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141545349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141545347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ed6a3a82a5ea84eade28455ec2c240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Health>k__BackingField:
+    <MaxValue>k__BackingField: 100
+  <Poise>k__BackingField:
+    <MaxValue>k__BackingField: 100
+  poiseRecoveryRate: 25
 --- !u!1 &185818556
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,9 +802,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 356776836}
-  - component: {fileID: 356776838}
   - component: {fileID: 356776837}
   - component: {fileID: 356776839}
+  - component: {fileID: 356776840}
+  - component: {fileID: 356776838}
   m_Layer: 7
   m_Name: Combat
   m_TagString: Untagged
@@ -867,6 +886,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63e2c23624e244c884ce7a20fbcb7f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &356776840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356776835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd1bfacdbd34f78b32e8692618287c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &519420028
@@ -2105,7 +2136,7 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 9040428931451832601, guid: fb07ef7fb68b06d4db3fbdd90a808b50, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects:
     - {fileID: 7655452283176513424, guid: fb07ef7fb68b06d4db3fbdd90a808b50, type: 3}
     m_AddedGameObjects: []

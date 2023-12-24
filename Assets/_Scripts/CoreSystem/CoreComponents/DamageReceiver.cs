@@ -7,21 +7,21 @@ namespace _Scripts.CoreSystem.CoreComponents
     {
         //[SerializeField] private GameObject _damageParticles;
 
-        private CoreComp<Stats> _stats;
+        private Stats _stats;
         //private CoreComp<ParticleManager> particleManager;
         
         public void Damage(float amount) {
             Debug.Log(Core.transform.parent.name + " Damaged!");
-            _stats.Comp?.DecreaseHealth(amount);
-            //particleManager.Comp?.StartParticlesWithRandomRotation(damageParticles);
+            _stats.Health.Decrease(amount);
+            //particleManager.StartParticlesWithRandomRotation(damageParticles);
         }
 
         protected override void Awake()
         {
             base.Awake();
 
-            _stats = new CoreComp<Stats>(Core);
-            //particleManager = new CoreComp<ParticleManager>(core);
+            _stats = Core.GetCoreComponent<Stats>();
+            //particleManager = Core.GetCoreComponent<ParticleManager>();
         }
     }
 }

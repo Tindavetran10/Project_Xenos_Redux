@@ -1,31 +1,29 @@
 using System;
-using _Scripts.CoreSystem.CoreComponents;
 using UnityEngine;
 
-public class Stats : CoreComponent
+namespace _Scripts.CoreSystem.CoreComponents
 {
-    public event Action OnHealthZero;
-    
-    [SerializeField] private float maxHealth;
-    private float _currentHealth;
-
-    protected override void Awake()
+    public class Stats : CoreComponent
     {
-        base.Awake();
-        _currentHealth = maxHealth;
-    }
+        [field: SerializeField] public StatsSystem.Stat Health { get; private set; }
+        [field: SerializeField] public StatsSystem.Stat Poise { get; private set; }
 
-    public void DecreaseHealth(float amount)
-    {
-        _currentHealth -= amount;
+        [SerializeField] private float poiseRecoveryRate;
+        
+        protected override void Awake()
+        {
+            base.Awake();
+        
+            Health.Init();
+            Poise.Init();
+        }
 
-        if (!(_currentHealth <= 0)) return;
-        _currentHealth = 0;
+        private void Update()
+        {
+            if(Poise.CurrentValue.Equals(Poise.MaxValue))
+                return;
             
-        OnHealthZero?.Invoke();
-        Debug.Log("Health is zero!!");
+            Poise.Increase(poiseRecoveryRate * Time.deltaTime);
+        }
     }
-
-    public void IncreaseHealth(float amount) 
-        => _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
 }
