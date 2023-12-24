@@ -96,7 +96,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
             CheckJumpMultiplier();
 
             if (Player.InputHandler.AttackInputs[(int)CombatInputs.Normal] && !_isTouchingCeiling)
-                StateMachine.ChangeState(Player.NormalAttackState);
+                StateMachine.ChangeState(Player.NormalNormalAttackState);
             else if (Player.InputHandler.AttackInputs[(int)CombatInputs.Heavy] && !_isTouchingCeiling)
                 StateMachine.ChangeState(Player.HeavyAttackState);
             // Change to Land State if he is on the ground and the velocity of y axis is really low

@@ -22,54 +22,54 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1789241595, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.06666667
+    - time: 0.04
       value: {fileID: -1871761517, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.13333334
+    - time: 0.08
       value: {fileID: 21378398, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.2
+    - time: 0.12
       value: {fileID: 2041543040, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.26666668
+    - time: 0.16
       value: {fileID: -1183349925, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.33333334
+    - time: 0.2
       value: {fileID: -1605416911, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.4
+    - time: 0.24
       value: {fileID: 262010064, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.46666667
+    - time: 0.28
       value: {fileID: 1602720416, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.53333336
+    - time: 0.32
       value: {fileID: 801302526, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.6
+    - time: 0.36
       value: {fileID: -1581847948, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.6666667
+    - time: 0.4
       value: {fileID: -1431898452, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.73333335
+    - time: 0.44
       value: {fileID: -66767196, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.8
+    - time: 0.48
       value: {fileID: 1764467084, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.8666667
+    - time: 0.52
       value: {fileID: -1167627242, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 0.93333334
+    - time: 0.56
       value: {fileID: 2142934314, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1
+    - time: 0.6
       value: {fileID: 82492895, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1.0666667
+    - time: 0.64
       value: {fileID: 906211892, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1.1333333
+    - time: 0.68
       value: {fileID: -619430061, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1.2
+    - time: 0.72
       value: {fileID: 1519066983, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1.2666667
+    - time: 0.76
       value: {fileID: 1217310765, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1.3333334
+    - time: 0.8
       value: {fileID: -215479876, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
-    - time: 1.4
+    - time: 0.84
       value: {fileID: 2092266612, guid: e078d25b7eee28a4481fd0ed3b71930e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 15
+  m_SampleRate: 25
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -113,7 +113,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.4666667
+    m_StopTime: 0.88
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -140,15 +140,71 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.53333336
+  - time: 0.32
     functionName: StartMovementTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
+  - time: 0.4
     functionName: AttackActionTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.48
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.52
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.56
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: StopMovementTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.64
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.68
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.72
+    functionName: AnimationCancelTrigger
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.76
+    functionName: AnimationCancelTrigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -161,63 +217,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8666667
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.93333334
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1
-    functionName: StopMovementTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.0666667
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.1333333
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.2
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.2666667
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.3333334
-    functionName: AnimationCancelTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 1.4
+  - time: 0.84
     functionName: AnimationFinishedTrigger
     data: 
     objectReferenceParameter: {fileID: 0}

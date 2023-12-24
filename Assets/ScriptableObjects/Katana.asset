@@ -16,38 +16,49 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 1549011118991605760
   - rid: 1549011141649760257
+  - rid: 1549011200523108352
+  - rid: 1549011224645074944
+  - rid: 1549011224645074945
   references:
     version: 2
     RefIds:
     - rid: 1549011118991605760
       type: {class: MovementData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
+        name: MovementData
         attackData:
-        - <Direction>k__BackingField: {x: 1, y: 0}
+        - name: 
+          <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 2
-        - <Direction>k__BackingField: {x: 1, y: 0}
+        - name: 
+          <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 1
-        - <Direction>k__BackingField: {x: 1, y: 0}
+        - name: 
+          <Direction>k__BackingField: {x: 1, y: 0}
           <Velocity>k__BackingField: 1.5
     - rid: 1549011141649760257
       type: {class: ActionHitBoxData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
+        name: ActionHitBoxData
         attackData:
-        - Debug: 0
+        - name: 
+          Debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.02
             y: -0.34
             width: 1
             height: 0.72
-        - Debug: 0
+        - name: 
+          Debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.06
             y: -0.34
             width: 0.66
             height: 0.66
-        - Debug: 1
+        - name: 
+          Debug: 1
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.02
@@ -56,4 +67,40 @@ MonoBehaviour:
             height: 0.72
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 512
+    - rid: 1549011200523108352
+      type: {class: DamageData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: Attack 1
+          <Amount>k__BackingField: 2
+        - name: Attack 2
+          <Amount>k__BackingField: 2
+        - name: Attack 3
+          <Amount>k__BackingField: 4
+    - rid: 1549011224645074944
+      type: {class: KnockBackData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: KnockBackData
+        attackData:
+        - name: Attack 1
+          <Angle>k__BackingField: {x: 1, y: 1}
+          <Strength>k__BackingField: 1
+        - name: Attack 2
+          <Angle>k__BackingField: {x: 1, y: 1}
+          <Strength>k__BackingField: 1
+        - name: Attack 3
+          <Angle>k__BackingField: {x: 1, y: 3}
+          <Strength>k__BackingField: 8
+    - rid: 1549011224645074945
+      type: {class: PoiseDamageData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
+      data:
+        name: PoiseDamageData
+        attackData:
+        - name: Attack 1
+          <Amount>k__BackingField: 30
+        - name: Attack 2
+          <Amount>k__BackingField: 30
+        - name: Attack 3
+          <Amount>k__BackingField: 30

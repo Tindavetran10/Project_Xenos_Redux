@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Scripts.CoreSystem.CoreComponents;
+using System.Linq;
 using UnityEngine;
 
 namespace _Scripts.CoreSystem
@@ -20,12 +21,16 @@ namespace _Scripts.CoreSystem
                 _coreComponents.Add(component);
         }
 
-        private T GetCoreComponent<T>() where T : CoreComponent
+        public T GetCoreComponent<T>() where T : CoreComponent
         {
-            var comp = GetComponentInChildren<T>();
-            if (comp != null)
-                return comp;
-        
+            var comp = _coreComponents.OfType<T>().FirstOrDefault();
+
+            if (comp) return comp;
+
+            comp = GetComponentInChildren<T>();
+
+            if (comp) return comp;
+
             Debug.LogWarning($"{typeof(T)} not found on {transform.parent.name}");
             return null;
         }

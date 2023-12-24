@@ -30,8 +30,8 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
         public PlayerDashState DashState { get; private set; }
         public PlayerCrouchIdleState CrouchIdleState { get; private set; }
         public PlayerCrouchMoveState CrouchMoveState { get; private set; }
-        public PlayerAttackState NormalAttackState { get; private set; }
-        public PlayerAttackState HeavyAttackState { get; private set; }
+        public PlayerNormalAttackState NormalNormalAttackState { get; private set; }
+        public PlayerHeavyAttackState HeavyAttackState { get; private set; }
         #endregion
         
         [SerializeField] private PlayerData playerData;
@@ -76,8 +76,8 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
             CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
             CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
 
-            NormalAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", _weapon);
-            HeavyAttackState = new PlayerAttackState(this, StateMachine, playerData, "attack", _weapon);
+            NormalNormalAttackState = new PlayerNormalAttackState(this, StateMachine, playerData, "attack", _weapon, CombatInputs.Normal);
+            HeavyAttackState = new PlayerHeavyAttackState(this, StateMachine, playerData, "attack", _weapon, CombatInputs.Heavy);
         }
 
         private void Start()

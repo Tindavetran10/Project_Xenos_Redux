@@ -16,6 +16,10 @@ namespace _Scripts.Weapons.Components
         
         protected bool IsAttackActive;
 
+        public virtual void Init()
+        {
+            
+        }
         
         protected virtual void Awake()
         {
@@ -23,18 +27,16 @@ namespace _Scripts.Weapons.Components
             EventHandler = GetComponentInChildren<AnimationEventHandler>();
         }
 
-        protected virtual void Start() {}
-
-        protected virtual void HandleEnter() => IsAttackActive = true;
-        protected virtual void HandleExit() => IsAttackActive = false;
-
-        protected virtual void OnEnable()
+        protected virtual void Start()
         {
             Weapon.OnEnter += HandleEnter;
             Weapon.OnExit += HandleExit;
         }
 
-        protected virtual void OnDisable()
+        protected virtual void HandleEnter() => IsAttackActive = true;
+        protected virtual void HandleExit() => IsAttackActive = false;
+        
+        protected virtual void OnDestroy()
         {
             Weapon.OnEnter -= HandleEnter;
             Weapon.OnExit -= HandleExit;
@@ -52,9 +54,9 @@ namespace _Scripts.Weapons.Components
             CurrentAttackData = Data.AttackData[Weapon.CurrentAttackCounter];
         }
 
-        protected override void Awake()
+        public override void Init()
         {
-            base.Awake();
+            base.Init();
             Data = Weapon.Data.GetData<T1>();
         }
     }

@@ -11,12 +11,13 @@ namespace _Scripts.Weapons
     // This script's basically a communicating hub between the player's attack state and the weapons
     public class Weapon : MonoBehaviour
     {
-        // Get NumberOfAttacks and MovementSpeed from the scriptable object
-        [field: SerializeField] public WeaponDataSo Data { get; private set; }
-        
         // The amount of time that the combo will restart to the first animation
         [SerializeField] private float attackCounterResetCoolDown;
-
+        
+        
+        // Get NumberOfAttacks and MovementSpeed from the scriptable object
+        public WeaponDataSo Data { get; private set; }
+        
         // Change the attack animation base on the number of player's input
         public int CurrentAttackCounter
         {
@@ -24,26 +25,51 @@ namespace _Scripts.Weapons
             // Reset the counter if it has reached the maximum number of attacks
             private set => _currentAttackCounter = value >= Data.NumberOfAttacks ? 0 : value;
         }
-        
         private int _currentAttackCounter;
         private static readonly int Counter = Animator.StringToHash("counter");
 
-        public event Action OnEnter; 
-        public event Action OnExit;
+
+        public event Action<bool> OnCurrentInputChange; 
+        public bool CurrentInput
+        {
+            get => _currentInput;
+            set
+            {
+                if (_currentInput != value)
+                {
+                    _currentInput = value;
+                    OnCurrentInputChange?.Invoke(_currentInput);
+                }
+            }
+        }
+        private bool _currentInput;
         
-        private Animator _anim;
-        private AnimationEventHandler EventHandler { get; set; }
+        
         
         // Reference to the base under the CurrentWeapon prefabs
         private GameObject BaseGameObject { get; set; }         
         //public GameObject WeaponSpriteGameObject { get; private set; }
         private static readonly int Active = Animator.StringToHash("active");
         
+        
+        private Animator Anim { get; set; }
+        public AnimationEventHandler EventHandler { get; private set; }
+        private AnimationEventHandler _eventHandler;
+        
+        
+
+        
+        
+        
         // Reference the Core that handle the normal movement of player
         public Core Core { get; private set; }
 
-         private Timer _attackCounterResetTimer;
+        private Timer _attackCounterResetTimer;
+        
+        public event Action OnEnter; 
+        public event Action OnExit;
 
+        
         public void Awake()
         {
             BaseGameObject = transform.Find("Base").GameObject();
@@ -51,7 +77,7 @@ namespace _Scripts.Weapons
             // Make references to the AnimationEventHandler script from the BaseGameObject
             EventHandler = BaseGameObject.GetComponent<AnimationEventHandler>();
             
-            _anim = BaseGameObject.GetComponent<Animator>();
+            Anim = BaseGameObject.GetComponent<Animator>();
             _attackCounterResetTimer = new Timer(attackCounterResetCoolDown);
         }
 
@@ -67,17 +93,17 @@ namespace _Scripts.Weapons
             
             // Check the boolean active from the unity editor 
             // Only change to the attack animation when the active is checked
-            _anim.SetBool(Active, true);
+            Anim.SetBool(Active, true);
             
             // Set the variable to the one in the Unity Editor
-            _anim.SetInteger(Counter, CurrentAttackCounter);
+            Anim.SetInteger(Counter, CurrentAttackCounter);
             
             OnEnter?.Invoke();
         }
         
         private void Exit()
         {
-            _anim.SetBool(Active, false);
+            Anim.SetBool(Active, false);
             _attackCounterResetTimer.StartTimer();
             
             CurrentAttackCounter++;
@@ -100,5 +126,6 @@ namespace _Scripts.Weapons
         }
         
         public void SetCore(Core core) => Core = core;
+        public void SetData(WeaponDataSo data) => Data = data;
     }
 }
