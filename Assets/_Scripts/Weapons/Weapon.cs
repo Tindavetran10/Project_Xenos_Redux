@@ -29,26 +29,8 @@ namespace _Scripts.Weapons
         private static readonly int Counter = Animator.StringToHash("counter");
 
 
-        public event Action<bool> OnCurrentInputChange; 
-        public bool CurrentInput
-        {
-            get => _currentInput;
-            set
-            {
-                if (_currentInput != value)
-                {
-                    _currentInput = value;
-                    OnCurrentInputChange?.Invoke(_currentInput);
-                }
-            }
-        }
-        private bool _currentInput;
-        
-        
-        
         // Reference to the base under the CurrentWeapon prefabs
         private GameObject BaseGameObject { get; set; }         
-        //public GameObject WeaponSpriteGameObject { get; private set; }
         private static readonly int Active = Animator.StringToHash("active");
         
         
@@ -56,11 +38,7 @@ namespace _Scripts.Weapons
         public AnimationEventHandler EventHandler { get; private set; }
         private AnimationEventHandler _eventHandler;
         
-        
 
-        
-        
-        
         // Reference the Core that handle the normal movement of player
         public Core Core { get; private set; }
 
@@ -72,6 +50,7 @@ namespace _Scripts.Weapons
         
         public void Awake()
         {
+            // Find the game object with the name "Base"
             BaseGameObject = transform.Find("Base").GameObject();
             
             // Make references to the AnimationEventHandler script from the BaseGameObject
@@ -88,7 +67,6 @@ namespace _Scripts.Weapons
         public void Enter()
         {
             //print($"{transform.name} enter");
-            
             _attackCounterResetTimer.StopTimer();
             
             // Check the boolean active from the unity editor 

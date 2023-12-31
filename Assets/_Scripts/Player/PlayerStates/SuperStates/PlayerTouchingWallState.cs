@@ -28,10 +28,6 @@ namespace _Scripts.Player.PlayerStates.SuperStates
             PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName) {}
 
 
-        public override void Enter() => base.Enter();
-
-        public override void Exit() => base.Exit();
-
         public override void LogicUpdate()
         {
             base.LogicUpdate();
@@ -54,8 +50,6 @@ namespace _Scripts.Player.PlayerStates.SuperStates
                 StateMachine.ChangeState(Player.LedgeClimbState);
         }
 
-        public override void PhysicsUpdate() => base.PhysicsUpdate();
-
         protected override void DoChecks()
         {
             base.DoChecks();
@@ -68,9 +62,8 @@ namespace _Scripts.Player.PlayerStates.SuperStates
                 _isTouchingLedge = CollisionSenses.LedgeHorizontal;
             }
             
-            if (_isTouchingWall && !_isTouchingLedge) {
+            if (_isTouchingWall && !_isTouchingLedge) 
                 Player.LedgeClimbState.SetDetectedPosition(Player.transform.position);
-            }
         }
 
         public override void AnimationTrigger() => base.AnimationTrigger();

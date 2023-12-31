@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace _Scripts.Weapons.Components
 {
+    // Inherit weapon component with 2 types of data parameter
     public class KnockBack : WeaponComponent<KnockBackData, AttackKnockBack>
     {
         private ActionHitBox _hitBox;

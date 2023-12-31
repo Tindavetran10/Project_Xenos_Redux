@@ -9,19 +9,17 @@ namespace _Scripts.Player.PlayerStates.SubStates
     {
         private readonly Weapon _weapon;
         
-        private int _inputIndex;
         private bool _checkFlip;
 
         public PlayerNormalAttackState(PlayerFiniteStateMachine.Player player,
             PlayerStateMachine stateMachine,
             PlayerData playerData,
             string animBoolName,
-            Weapon weapon, CombatInputs normal)
+            Weapon weapon)
             : base(player, stateMachine, playerData, animBoolName)
         {
             _weapon = weapon;
             weapon.OnExit += ExitHandler;
-            _inputIndex = (int) normal;
             weapon.EventHandler.OnFlipSetActive += HandleFlipSetActive;
         }
 
@@ -31,9 +29,6 @@ namespace _Scripts.Player.PlayerStates.SubStates
             var playerInputHandler = Player.InputHandler;
 
             var xInput = playerInputHandler.NormInputX;
-            var attackInputs = playerInputHandler.AttackInputs;
-
-            _weapon.CurrentInput = attackInputs[_inputIndex];
             
             if(_checkFlip)
                 Movement.CheckIfShouldFlip(xInput);

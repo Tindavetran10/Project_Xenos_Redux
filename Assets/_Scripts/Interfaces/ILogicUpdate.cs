@@ -1,4 +1,4 @@
-﻿namespace Interface
+﻿namespace _Scripts.Interfaces
 {
     public interface ILogicUpdate
     { 

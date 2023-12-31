@@ -43,13 +43,14 @@ namespace _Scripts.Weapons.Components
             EventHandler.OnAttackAction -= HandleAttackAction;
         }
 
+        // Draw the detected area for each attack
         private void OnDrawGizmosSelected()
         {
             if(Data == null) return;
 
             foreach (var item in Data.AttackData)
             { 
-                if(!item.Debug) continue;
+                if(!item.debug) continue;
                 Gizmos.DrawWireCube(transform.position + (Vector3)item.HitBox.center, item.HitBox.size); 
             }
         }

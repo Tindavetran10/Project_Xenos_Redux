@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using _Scripts.Player.Data;
+﻿using _Scripts.Player.Data;
 using _Scripts.Player.Input;
 using _Scripts.Player.PlayerStates.SubStates;
 using _Scripts.Weapons;
@@ -9,14 +8,11 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
 {
     public class Player : MonoBehaviour
     {
-        public bool IsBusy { get; private set; }
-        
         #region State Variables
         // By declaring the state machine, we can access all the function
         // including changing or initializing different states
         private PlayerStateMachine StateMachine { get; set; }
-
-        #region Player States
+        
         public PlayerIdleState IdleState { get; private set; }
         public PlayerMoveState MoveState { get; private set; }
         public PlayerJumpState JumpState { get; private set; }
@@ -30,9 +26,8 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
         public PlayerDashState DashState { get; private set; }
         public PlayerCrouchIdleState CrouchIdleState { get; private set; }
         public PlayerCrouchMoveState CrouchMoveState { get; private set; }
-        public PlayerNormalAttackState NormalNormalAttackState { get; private set; }
+        public PlayerNormalAttackState NormalAttackState { get; private set; }
         public PlayerHeavyAttackState HeavyAttackState { get; private set; }
-        #endregion
         
         [SerializeField] private PlayerData playerData;
         #endregion
@@ -76,8 +71,8 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
             CrouchIdleState = new PlayerCrouchIdleState(this, StateMachine, playerData, "crouchIdle");
             CrouchMoveState = new PlayerCrouchMoveState(this, StateMachine, playerData, "crouchMove");
 
-            NormalNormalAttackState = new PlayerNormalAttackState(this, StateMachine, playerData, "attack", _weapon, CombatInputs.Normal);
-            HeavyAttackState = new PlayerHeavyAttackState(this, StateMachine, playerData, "attack", _weapon, CombatInputs.Heavy);
+            NormalAttackState = new PlayerNormalAttackState(this, StateMachine, playerData, "attack", _weapon);
+            HeavyAttackState = new PlayerHeavyAttackState(this, StateMachine, playerData, "attack", _weapon);
         }
 
         private void Start()
@@ -90,8 +85,6 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
 
             StateMachine.Initialize(IdleState);
         }
-        
-        
 
         private void Update()
         {
@@ -103,15 +96,6 @@ namespace _Scripts.Player.PlayerFiniteStateMachine
         #endregion
 
         #region Other Functions
-
-        public IEnumerator BusyForState(float time)
-        {
-            IsBusy = true;
-            yield return new WaitForSeconds(time);
-            IsBusy = false;
-        }
-        
-        
         // Change the height of the collider when the player is crouching
         public void SetColliderHeight(float height)
         {

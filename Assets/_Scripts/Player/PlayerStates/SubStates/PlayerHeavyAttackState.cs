@@ -16,12 +16,11 @@ namespace _Scripts.Player.PlayerStates.SubStates
             PlayerStateMachine stateMachine,
             PlayerData playerData,
             string animBoolName,
-            Weapon weapon, CombatInputs heavy)
+            Weapon weapon)
             : base(player, stateMachine, playerData, animBoolName)
         {
             _weapon = weapon;
             weapon.OnExit += ExitHandler;
-            _inputIndex = (int) heavy;
             weapon.EventHandler.OnFlipSetActive += HandleFlipSetActive;
         }
 
@@ -31,10 +30,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
             var playerInputHandler = Player.InputHandler;
 
             var xInput = playerInputHandler.NormInputX;
-            var attackInputs = playerInputHandler.AttackInputs;
-
-            _weapon.CurrentInput = attackInputs[_inputIndex];
-
+            
             if(_checkFlip)
                 Movement.CheckIfShouldFlip(xInput);
         }

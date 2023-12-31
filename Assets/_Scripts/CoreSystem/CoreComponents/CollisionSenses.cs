@@ -59,6 +59,8 @@ namespace _Scripts.CoreSystem.CoreComponents
 		public bool LedgeHorizontal =>
 			Physics2D.Raycast(LedgeCheckHorizontal.position, Vector2.right * Movement.FacingDirection,
 				wallCheckDistance, whatIsGround);
+		
+		public bool LedgeVertical => Physics2D.Raycast(LedgeCheckVertical.position, Vector2.down, wallCheckDistance, whatIsGround);
 
 		#endregion
 
@@ -69,6 +71,7 @@ namespace _Scripts.CoreSystem.CoreComponents
 			Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 			Gizmos.DrawWireSphere(wallCheck.position, groundCheckRadius);
 			Gizmos.DrawWireSphere(ledgeCheckHorizontal.position, groundCheckRadius);
+			Gizmos.DrawWireSphere(ledgeCheckVertical.position, groundCheckRadius);
 		}
     }
 }
