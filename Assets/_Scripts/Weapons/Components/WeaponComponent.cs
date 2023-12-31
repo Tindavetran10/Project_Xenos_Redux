@@ -16,10 +16,7 @@ namespace _Scripts.Weapons.Components
         
         protected bool IsAttackActive;
 
-        public virtual void Init()
-        {
-            
-        }
+        public virtual void Init() {}
         
         protected virtual void Awake()
         {
@@ -29,6 +26,7 @@ namespace _Scripts.Weapons.Components
 
         protected virtual void Start()
         {
+            // Subscribe to the Weapon's OnEnter and OnExit events
             Weapon.OnEnter += HandleEnter;
             Weapon.OnExit += HandleExit;
         }
@@ -38,22 +36,26 @@ namespace _Scripts.Weapons.Components
         
         protected virtual void OnDestroy()
         {
+            // Unsubscribe from the Weapon's OnEnter and OnExit events
             Weapon.OnEnter -= HandleEnter;
             Weapon.OnExit -= HandleExit;
         }
     }
 
+    // Define a generic abstract class for weapon components with additional type parameters
     public abstract class WeaponComponent<T1, T2> : WeaponComponent where T1 : ComponentData<T2> where T2 : AttackData
     {
         protected T1 Data;
         protected T2 CurrentAttackData;
 
+        // Override the HandleEnter method to set the current attack data
         protected override void HandleEnter()
         {
             base.HandleEnter();
             CurrentAttackData = Data.AttackData[Weapon.CurrentAttackCounter];
         }
-
+        
+        // Override the Init method to set the specific data type
         public override void Init()
         {
             base.Init();

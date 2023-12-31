@@ -63,6 +63,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
             if (!_wallJumpCoyoteTimer && !_isTouchingWall && !_isTouchingWallBack &&
                 (_oldIsTouchingWall || _oldIsTouchingWallBack)) 
                 StartWallJumpCoyoteTimer();
+            
         }
 
         public override void Enter()
@@ -95,12 +96,12 @@ namespace _Scripts.Player.PlayerStates.SubStates
         
             CheckJumpMultiplier();
 
-            if (Player.InputHandler.AttackInputs[(int)CombatInputs.Normal] && !_isTouchingCeiling)
-                StateMachine.ChangeState(Player.NormalNormalAttackState);
+            /*if (Player.InputHandler.AttackInputs[(int)CombatInputs.Normal] && !_isTouchingCeiling)
+                StateMachine.ChangeState(Player.NormalAttackState);
             else if (Player.InputHandler.AttackInputs[(int)CombatInputs.Heavy] && !_isTouchingCeiling)
-                StateMachine.ChangeState(Player.HeavyAttackState);
+                StateMachine.ChangeState(Player.HeavyAttackState);*/
             // Change to Land State if he is on the ground and the velocity of y axis is really low
-            else if (_isGrounded && Movement?.CurrentVelocity.y < 0.01f)
+            if (_isGrounded && Movement?.CurrentVelocity.y < 0.01f)
                 StateMachine.ChangeState(Player.LandState);
             
             // Change to Ledge Climb State if he the Ledge of Wall 

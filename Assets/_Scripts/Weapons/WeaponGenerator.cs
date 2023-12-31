@@ -14,10 +14,10 @@ namespace _Scripts.Weapons
 
         private List<WeaponComponent> _componentAlreadyOnWeapon = new();
 
-        private List<WeaponComponent> _componentsAddedToWeapon = new();
+        private readonly List<WeaponComponent> _componentsAddedToWeapon = new();
 
         private List<Type> _componentDependencies = new();
-
+        
 
         private void Start() => GenerateWeapon(data);
 

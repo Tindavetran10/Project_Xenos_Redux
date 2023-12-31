@@ -42,7 +42,7 @@ MonoBehaviour:
         name: ActionHitBoxData
         attackData:
         - name: 
-          Debug: 0
+          debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.02
@@ -50,7 +50,7 @@ MonoBehaviour:
             width: 1
             height: 0.72
         - name: 
-          Debug: 0
+          debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.06
@@ -58,7 +58,7 @@ MonoBehaviour:
             width: 0.66
             height: 0.66
         - name: 
-          Debug: 1
+          debug: 0
           <HitBox>k__BackingField:
             serializedVersion: 2
             x: 0.02
@@ -78,7 +78,7 @@ MonoBehaviour:
         - name: Attack 2
           <Amount>k__BackingField: 2
         - name: Attack 3
-          <Amount>k__BackingField: 4
+          <Amount>k__BackingField: 3
     - rid: 1549011224645074944
       type: {class: KnockBackData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
@@ -86,13 +86,13 @@ MonoBehaviour:
         attackData:
         - name: Attack 1
           <Angle>k__BackingField: {x: 1, y: 1}
-          <Strength>k__BackingField: 1
+          <Strength>k__BackingField: 2
         - name: Attack 2
           <Angle>k__BackingField: {x: 1, y: 1}
-          <Strength>k__BackingField: 1
+          <Strength>k__BackingField: 2
         - name: Attack 3
-          <Angle>k__BackingField: {x: 1, y: 3}
-          <Strength>k__BackingField: 8
+          <Angle>k__BackingField: {x: 1, y: 2}
+          <Strength>k__BackingField: 2
     - rid: 1549011224645074945
       type: {class: PoiseDamageData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:

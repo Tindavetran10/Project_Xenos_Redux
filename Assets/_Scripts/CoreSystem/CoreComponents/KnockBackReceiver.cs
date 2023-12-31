@@ -19,7 +19,7 @@ namespace _Scripts.CoreSystem.CoreComponents
         public void KnockBack(Vector2 angle, float strength, int direction)
         {
             _movement.Comp?.SetVelocity(strength, angle, direction);
-            if (_movement.Comp != null) _movement.Comp.CanSetVelocity = false;
+            _movement.Comp.CanSetVelocity = false;
             
             _isKnockBackActive = true;
             _knockBackStartTime = Time.time;

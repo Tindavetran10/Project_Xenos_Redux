@@ -18,7 +18,7 @@ namespace _Scripts.Player.PlayerStates.SubStates
 
             if (!IsExitingState)
             {
-                if (XInput != 0 && !Player.IsBusy)
+                if (XInput != 0)
                     StateMachine.ChangeState(Player.MoveState);
                 else if (YInput == -1)
                     StateMachine.ChangeState(Player.CrouchIdleState);

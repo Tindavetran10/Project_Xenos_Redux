@@ -14,15 +14,12 @@ namespace _Scripts.Player.PlayerStates.SubStates
 
         public override void Enter()
         {
-            base.Enter();
-            
             _holdPosition = Player.transform.position;
             HoldPosition();
         }
 
         public override void Exit()
         {
-            base.Exit();
         }
 
         public override void LogicUpdate()
@@ -49,7 +46,6 @@ namespace _Scripts.Player.PlayerStates.SubStates
 
         public override void PhysicsUpdate()
         {
-            base.PhysicsUpdate();
         }
 
         protected override void DoChecks()

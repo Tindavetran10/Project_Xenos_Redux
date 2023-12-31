@@ -6,7 +6,7 @@ namespace _Scripts.CoreSystem.CoreComponents
     // This class will take care of all functions that changing the velocity of different characters 
     public class Movement : CoreComponent
     {
-        private Rigidbody2D Rb { get; set; }
+        public Rigidbody2D Rb { get; private set; }
         public int FacingDirection { get; private set; }
         public bool CanSetVelocity { get; set; }
     
@@ -98,7 +98,8 @@ namespace _Scripts.CoreSystem.CoreComponents
             if (xInput != 0 && xInput != FacingDirection) 
                 Flip();
         }
-        private void Flip()
+
+        public void Flip()
         {
             FacingDirection *= -1;
             Rb.transform.Rotate(0.0f, 180.0f, 0.0f);

@@ -1,7 +1,6 @@
 ﻿using _Scripts.CoreSystem.CoreComponents;
 using _Scripts.Player.Data;
 using _Scripts.Player.PlayerFiniteStateMachine;
-using UnityEngine;
 
 namespace _Scripts.Player.PlayerStates.SuperStates
 {
@@ -37,7 +36,7 @@ namespace _Scripts.Player.PlayerStates.SuperStates
             
             if (IsAbilityDone)
             {
-                if (_isGrounded && Movement?.CurrentVelocity.y < 0.01f)
+                if (_isGrounded && Movement != null && Movement.CurrentVelocity.y < 0.01f)
                     StateMachine.ChangeState(Player.IdleState);
                 else StateMachine.ChangeState(Player.InAirState);
             }
