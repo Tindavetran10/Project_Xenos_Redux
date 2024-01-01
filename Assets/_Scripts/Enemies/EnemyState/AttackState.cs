@@ -11,17 +11,15 @@ namespace _Scripts.Enemies.EnemyState
         private Movement _movement;
         
         protected readonly Transform AttackPosition;
-
+        
         private int _comboCounter;
         private float _lastTimeAttack;
-        private const float ComboWindow = 2;
+        protected float _comboWindow;
         private static readonly int ComboCounter = Animator.StringToHash("comboCounter");
 
         protected bool IsAnimationFinished;
         protected bool IsPlayerInMinAgroRange;
-
-        private D_MeleeAttackState _state;
-
+        
         protected AttackState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName,
             Transform attackPosition) : base(enemy, stateMachine, animBoolName)
         {
@@ -33,7 +31,7 @@ namespace _Scripts.Enemies.EnemyState
         {
             base.Enter();
             
-            if (_comboCounter > 2 || Time.time >= _lastTimeAttack + ComboWindow)
+            if (_comboCounter > _comboWindow || Time.time >= _lastTimeAttack + _comboWindow)
                 _comboCounter = 0;
             
             Enemy.Anim.SetInteger(ComboCounter, _comboCounter);
