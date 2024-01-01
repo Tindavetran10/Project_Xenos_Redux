@@ -9,14 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7665104bab401bb97ce282a0737eb2, type: 3}
-  m_Name: Ronin_MeleeAttackData
+  m_Script: {fileID: 11500000, guid: 11051e2a03ed4f70add2abd528d4edf8, type: 3}
+  m_Name: Ronin_StunData
   m_EditorClassIdentifier: 
-  attackRadius: 0.5
-  attackDamage: 10
-  knockbackAngle: {x: 1, y: 1}
-  knockbackStrength: 1
-  PoiseDamage: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
+  stunTime: 1.5
+  stunKnockbackTime: 0.1
+  stunKnockbackSpeed: 2
+  stunKnockbackAngle: {x: 1, y: 1}

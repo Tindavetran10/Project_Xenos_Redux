@@ -19,6 +19,7 @@ namespace _Scripts.Enemies.EnemyFiniteStateMachine
         public Core Core { get; private set; }
         public Animator Anim { get; private set; }
         public AnimationToStateMachine Atsm { get; private set; }
+        public int LastDamageDirection { get; private set; }
         #endregion
         
         

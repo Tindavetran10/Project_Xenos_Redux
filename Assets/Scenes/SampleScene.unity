@@ -1111,6 +1111,7 @@ GameObject:
   - component: {fileID: 432258533}
   - component: {fileID: 432258532}
   - component: {fileID: 432258534}
+  - component: {fileID: 432258535}
   m_Layer: 9
   m_Name: Combat
   m_TagString: Untagged
@@ -1193,6 +1194,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxKnockBackTime: 0.2
+--- !u!114 &432258535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432258530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd1bfacdbd34f78b32e8692618287c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,10 +1475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Health>k__BackingField:
-    <MaxValue>k__BackingField: 10
+    <MaxValue>k__BackingField: 50
   <Poise>k__BackingField:
     <MaxValue>k__BackingField: 25
-  poiseRecoveryRate: 10
+  poiseRecoveryRate: 20
 --- !u!1 &920438019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1575,7 @@ Transform:
   - {fileID: 1059360676}
   - {fileID: 901017154}
   - {fileID: 432258531}
+  - {fileID: 1298771531}
   m_Father: {fileID: 1409848412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &940769173
@@ -2085,6 +2099,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95385e44975292340ac940b5e5e63055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1298771530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1298771531}
+  - component: {fileID: 1298771532}
+  m_Layer: 9
+  m_Name: Death
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1298771531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298771530}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 940769172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1298771532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298771530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6696911bfc4d45bee9dcfa1aede398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1303253697 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2528657962894186977, guid: fb07ef7fb68b06d4db3fbdd90a808b50, type: 3}
@@ -2295,6 +2353,7 @@ MonoBehaviour:
   chargeStateData: {fileID: 11400000, guid: ace6ca19cb426f245a26792be21fb70e, type: 2}
   lookForPlayerStateData: {fileID: 11400000, guid: 4ec323a3e7617ed459d6518c3344008e, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: 30f3780a5a091c84fbc4ad671edbf9b8, type: 2}
+  stunStateData: {fileID: 11400000, guid: 706d8cca28aa03a4691d5e8f63dbf8e1, type: 2}
   meleeAttackPosition: {fileID: 920438020}
 --- !u!95 &1409848417
 Animator:
