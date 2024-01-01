@@ -14,6 +14,12 @@ namespace _Scripts.Enemies.EnemyTypes.Ronin
             : base(enemy, stateMachine, animBoolName, attackPosition, stateData) =>
             _enemyRonin = enemyRonin;
 
+        public override void Enter()
+        {
+            base.Enter();
+            _comboWindow = StateData.comboTotal;
+        }
+
         public override void LogicUpdate()
         {
             base.LogicUpdate();

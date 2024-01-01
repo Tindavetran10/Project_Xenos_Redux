@@ -14,13 +14,13 @@ namespace _Scripts.Enemies.EnemyState
             : Core.GetCoreComponent(ref _collisionSenses);
         private CollisionSenses _collisionSenses;
 
-        protected bool isStunTimeOver;
-        protected bool isGrounded;
-        protected bool isMovementStopped;
-        protected bool performCloseRangeAction;
-        protected bool isPlayerInMinAgroRange;
+        protected bool IsStunTimeOver;
+        private bool _isGrounded;
+        private bool _isMovementStopped;
+        protected bool PerformCloseRangeAction;
+        protected bool IsPlayerInMinAgroRange;
 
-        protected D_StunState _stateData;
+        private readonly D_StunState _stateData;
         
         protected StunState(Enemy enemy, EnemyStateMachine stateMachine, string animBoolName, D_StunState stateData) 
             : base(enemy, stateMachine, animBoolName) =>
@@ -30,8 +30,8 @@ namespace _Scripts.Enemies.EnemyState
         {
             base.Enter();
 
-            isStunTimeOver = false;
-            isMovementStopped = false;
+            IsStunTimeOver = false;
+            _isMovementStopped = false;
             Movement?.SetVelocity(_stateData.stunKnockbackSpeed, _stateData.stunKnockbackAngle, Enemy.LastDamageDirection);
         }
 
@@ -46,11 +46,11 @@ namespace _Scripts.Enemies.EnemyState
             base.LogicUpdate();
 
             if (Time.time >= StartTime + _stateData.stunTime)
-                isStunTimeOver = true;
+                IsStunTimeOver = true;
 
-            if (isGrounded && Time.time >= StartTime + _stateData.stunKnockbackTime && !isMovementStopped)
+            if (_isGrounded && Time.time >= StartTime + _stateData.stunKnockbackTime && !_isMovementStopped)
             {
-                isMovementStopped = true;
+                _isMovementStopped = true;
                 Movement?.SetVelocityX(0f);
             }
         }
@@ -59,9 +59,9 @@ namespace _Scripts.Enemies.EnemyState
         {
             base.DoChecks();
             
-            isGrounded = CollisionSenses.Ground;
-            performCloseRangeAction = Enemy.CheckPlayerInCloseRangeAction();
-            isPlayerInMinAgroRange = Enemy.CheckPlayerInMinAgroRange();
+            _isGrounded = CollisionSenses.Ground;
+            PerformCloseRangeAction = Enemy.CheckPlayerInCloseRangeAction();
+            IsPlayerInMinAgroRange = Enemy.CheckPlayerInMinAgroRange();
         }
     }
 }

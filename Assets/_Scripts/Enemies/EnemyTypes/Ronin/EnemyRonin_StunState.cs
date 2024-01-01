@@ -16,11 +16,11 @@ namespace _Scripts.Enemies.EnemyTypes.Ronin
         {
             base.LogicUpdate();
 
-            if (isStunTimeOver)
+            if (IsStunTimeOver)
             {
-                if(performCloseRangeAction)
+                if(PerformCloseRangeAction)
                     StateMachine.ChangeState(_enemyRonin.MeleeAttackState);
-                else if(isPlayerInMinAgroRange)
+                else if(IsPlayerInMinAgroRange)
                     StateMachine.ChangeState(_enemyRonin.ChargeState);
                 else
                 {
