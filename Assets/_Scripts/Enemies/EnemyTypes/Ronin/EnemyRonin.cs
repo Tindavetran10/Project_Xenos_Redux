@@ -12,6 +12,8 @@ namespace _Scripts.Enemies.EnemyTypes.Ronin
         public EnemyRonin_ChargeState ChargeState { get; private set; }
         public EnemyRonin_LookForPlayerState LookForPlayerState { get; private set; }
         public EnemyRonin_MeleeAttackState MeleeAttackState { get; private set; }
+        public EnemyRonin_StunState StunState { get; private set; }
+        public EnemyRonin_DeadState DeadState { get; private set; }
         
         
         [SerializeField] private D_IdleState idleStateData;
@@ -20,6 +22,7 @@ namespace _Scripts.Enemies.EnemyTypes.Ronin
         [SerializeField] private D_ChargeState chargeStateData;
         [SerializeField] private D_LookForPlayerState lookForPlayerStateData;
         [SerializeField] private D_MeleeAttackState meleeAttackStateData;
+        [SerializeField] private D_StunState stunStateData;
 
         [SerializeField] private Transform meleeAttackPosition;
         
@@ -33,10 +36,18 @@ namespace _Scripts.Enemies.EnemyTypes.Ronin
             ChargeState = new EnemyRonin_ChargeState(this, StateMachine, "charge", chargeStateData, this);
             LookForPlayerState = new EnemyRonin_LookForPlayerState(this, StateMachine, "lookForPlayer", lookForPlayerStateData, this);
             MeleeAttackState = new EnemyRonin_MeleeAttackState(this, StateMachine, "meleeAttack", meleeAttackPosition, meleeAttackStateData, this);
+            StunState = new EnemyRonin_StunState(this, StateMachine, "stun", stunStateData, this);
+            DeadState = new EnemyRonin_DeadState(this, StateMachine, "dead", this);
+            
+            stats.Poise.OnCurrentValueZero += HandlePoiseZero;
         }
 
         private void Start() => StateMachine.Initialize(IdleState);
-        
+
+        private void HandlePoiseZero() => StateMachine.ChangeState(StunState);
+
+        public void OnDestroy() => stats.Poise.OnCurrentValueZero -= HandlePoiseZero;
+
         public override void OnDrawGizmos()
         {
             base.OnDrawGizmos();

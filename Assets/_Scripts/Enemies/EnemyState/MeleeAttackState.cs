@@ -33,6 +33,7 @@ namespace _Scripts.Enemies.EnemyState
                 damageable?.Damage(_stateData.attackDamage);
 
                 var knockBackable = collider.GetComponent<IKnockBackable>();
+                
                 if (knockBackable != null) {
                     knockBackable.KnockBack(_stateData.knockbackAngle, _stateData.knockbackStrength, Movement.FacingDirection);
                 }
