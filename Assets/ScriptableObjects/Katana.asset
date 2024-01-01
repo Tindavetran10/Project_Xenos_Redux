@@ -74,11 +74,11 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: Attack 1
-          <Amount>k__BackingField: 2
+          <Amount>k__BackingField: 10
         - name: Attack 2
-          <Amount>k__BackingField: 2
+          <Amount>k__BackingField: 10
         - name: Attack 3
-          <Amount>k__BackingField: 3
+          <Amount>k__BackingField: 10
     - rid: 1549011224645074944
       type: {class: KnockBackData, ns: _Scripts.Weapons.Components, asm: Assembly-CSharp}
       data:
