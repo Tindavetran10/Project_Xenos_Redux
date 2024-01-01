@@ -11,7 +11,7 @@ namespace _Scripts.Enemies.EnemyState.StateData
         public Vector2 knockbackAngle = Vector2.one;
         public float knockbackStrength = 10f;
 
-        public float PoiseDamage;
+        public float poiseDamage;
 
         public LayerMask whatIsPlayer;
     }
