@@ -9,7 +9,7 @@ namespace _Scripts.Enemies.EnemyFiniteStateMachine
         protected readonly EnemyStateMachine StateMachine;
 
 
-        protected float StartTime { get; private set; }
+        public float StartTime { get; private set; }
 
         private readonly string _animBoolName;
 

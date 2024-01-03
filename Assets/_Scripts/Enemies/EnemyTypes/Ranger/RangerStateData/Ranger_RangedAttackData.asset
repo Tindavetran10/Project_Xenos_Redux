@@ -9,15 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7665104bab401bb97ce282a0737eb2, type: 3}
-  m_Name: Ronin_MeleeAttackData
+  m_Script: {fileID: 11500000, guid: 06cb85574c13489ab32564b9ed96f118, type: 3}
+  m_Name: Ranger_RangedAttackData
   m_EditorClassIdentifier: 
-  comboTotal: 2
-  attackRadius: 0.5
-  attackDamage: 10
-  knockbackAngle: {x: 1, y: 1}
-  knockbackStrength: 1
-  poiseDamage: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
+  projectile: {fileID: 181886559088929243, guid: 744f6d59a21b89a4db3fb03145ccb288, type: 3}
+  projectileDamage: 10
+  projectileSpeed: 12
+  projectileTravelDistance: 10
